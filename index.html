@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Pakhtoon Cafe</title>
+    <style>
+        /* Update the navigation bar color and style */
+        .navbar {
+            background-color: #4CAF50;
+        }
+
+        /* Customize the carousel control buttons */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #FF5733; /* Change the carousel control button color */
+        }
+
+        /* Customize the welcome section */
+        .featured-story {
+            background-color: #f9f9f9; /* Change the background color */
+        }
+
+        /* Update the button style */
+        .btn-primary {
+            background-color: #FF5733;
+            border-color: #FF5733;
+            color: white;
+        }
+
+        /* Update the recent post section style */
+        .recent-posts {
+            padding: 40px 0;
+            background-color: #dbc8c8; /* Change the background color */
+        }
+
+        /* Customize the footer section */
+        .footer {
+            background-color: #a02de7;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add animation to the background color */
+        @keyframes changeBackgroundColor {
+            0% {
+                background-color: #dbc8c8;
+            }
+            50% {
+                background-color: #a02de7;
+            }
+            100% {
+                background-color: #4CAF50;
+            }
+        }
+
+        /* Apply animation to the custom section */
+        .custom-section {
+            animation: changeBackgroundColor 5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <style>
+        .navbar-toggler {
+            border-color: #cfc9c9; /* Change the border color */
+        }
+    
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+            /* Replace the icon with a custom one or change the color */
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4CAF50;">
+        <div class="container">
+            <!-- Logo and Brand name -->
+            <a class="navbar-brand" href="#">
+                <img src="" alt="">
+                <span style="font-weight:bold;">Pakhtoon</span> <span style="color: red;">Cafe</span>
+            </a>
+            <!-- Toggler button for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="carousel-inner">
+                <!-- Content will be dynamically added here -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    
+    <script>
+        const carouselItems = [
+            "Red.jpg",
+            "white.jpg",
+            "grey.jpg"
+        ];
+    
+        const carouselInner = document.getElementById('carousel-inner');
+    
+        carouselItems.forEach((item, index) => {
+            const carouselItem = document.createElement('div');
+            carouselItem.classList.add('carousel-item');
+            if (index === 0) {
+                carouselItem.classList.add('active');
+            }
+            const img = document.createElement('img');
+            img.classList.add('d-block', 'w-100');
+            img.setAttribute('src', item);
+            img.setAttribute('alt', `Slide ${index + 1}`);
+            carouselItem.appendChild(img);
+            carouselInner.appendChild(carouselItem);
+        });
+    
+        const prevButton = document.querySelector('[data-bs-slide="prev"]');
+        const nextButton = document.querySelector('[data-bs-slide="next"]');
+        prevButton.addEventListener('click', () => {
+            $('#carouselExampleIndicators').carousel('prev');
+        });
+        nextButton.addEventListener('click', () => {
+            $('#carouselExampleIndicators').carousel('next');
+        });
+    </script>
+    
+
+
+    <section class="featured-story">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="pakhtoon.jpg" alt="Cafe Image" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <h1>Welcome to Our Charming Cafe</h1>
+                    <p>Savour the delightful flavours that characterise our exquisite offerings while indulging in the rich aroma of freshly brewed coffee. We cordially invite you to embark on an unparalleled voyage of flavour and customs.Savour the delightful flavours that characterise our exquisite offerings while indulging in the rich aroma of freshly brewed coffee. We cordially invite you to embark on an unparalleled voyage of flavour and customs.
+                    </p>
+                    <a href="#menu" class="btn btn-custom">View Our Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    <style>
+        /* Custom CSS */
+        .recent-posts {
+            padding: 40px 0;
+        }
+
+        .post {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .post:hover {
+            transform: scale(1.05);
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .post-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .post-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            margin-top: 15px;
+        }
+    </style>
+
+<section class="container my-5 custom-section">
+    <div class="row" id="menuItems">
+    </div>
+</section>
+
+<script>
+    // Sample data for menu items
+    const menuItems = [
+        {
+            title: 'Dessert Menu',
+            items: [
+                { name: 'Chocolate Cake', price: '$6.99' },
+                { name: 'Cheesecake', price: '$7.99' },
+                { name: 'Tiramisu', price: '$8.99' }
+            ]
+        },
+        {
+            title: 'Beverage Menu',
+            items: [
+                { name: 'Cappuccino', price: '$4.99' },
+                { name: 'Iced Tea', price: '$3.99' },
+                { name: 'Smoothie', price: '$5.99' }
+            ]
+        },
+        {
+            title: 'Beverage Menu',
+            items: [
+                { name: 'Cappuccino', price: '$4.99' },
+                { name: 'Iced Tea', price: '$3.99' },
+                { name: 'Smoothie', price: '$5.99' }
+            ]
+        },
+    ];
+
+
+    
+
+    const menuItemsContainer = document.getElementById('menuItems');
+
+    // Loop through the menu items and create cards for each item
+    menuItems.forEach((menu, index) => {
+        const menuItem = `
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title gray-heading">${menu.title}</h2>
+                        <ul class="menu-list">
+                            ${menu.items
+                                .map(
+                                    item => `
+                                        <li>
+                                            <span class="item-name">${item.name}</span>
+                                            <span class="item-price">${item.price}</span>
+                                        </li>
+                                    `
+                                )
+                                .join('')}
+                        </ul>
+                        <button class="order-btn red-btn" data-menu="menu-${index + 1}">Order</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        menuItemsContainer.insertAdjacentHTML('beforeend', menuItem);
+    });
+</script>
+
+
+ <!-- Content Section - About Us -->
+ <section class="container my-5 about-section" id="about">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>About Us</h2>
+            <p>Greetings from Pakhtoon, where each cup narrates a tale. Our quest started with a straightforward concept: to provide an environment where innovation and tradition may live together. Grounded in Peshawar's rich cultural legacy, our goal is to deliver an experience rather than merely a coffee shop.
+            </p>
+            <p>Serving more than simply coffee is our goal. We are here to offer a taste of tradition, a slice of history, and a drink of real hospitality. Every item on our menu, from our carefully prepared drinks to our carefully chosen selection of regional specialties, pays homage to this city's colourful fabric.</p>
+            <p>Pakhtoon Cafe offers more than simply a place to satisfy your palate when you walk in. A portion of Peshawar's heart is yours to find.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img src="Screenshot (96).png" alt="Pakhtoon Cafe" class="side-image" with="400" height="350">
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Contact Us</h2>
+                <div class="contact-info">
+                    <p>Email: pakhtoon@cafepeshawar.com</p>
+                    <p>Phone: (92) 343-1933639</p>
+                    <p>Address: 123 Street, Peshawar, Pakistan</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Follow Us</h2>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <!-- Add more social icons as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showAlert() {
+            alert("Thank you for your purchase! Enjoy your meal.");
+        }
+    </script>
+</body>
+
+</html>
